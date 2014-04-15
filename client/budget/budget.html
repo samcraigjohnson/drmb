@@ -1,0 +1,241 @@
+<template name="budget">
+<div class="row {{mainHidden}}" id="budget-main">
+<div class="small-12 columns">
+	{{>moneyDash}}
+	{{>addExpense}}
+	{{>budgetProgress}}
+	{{>savingsGoals}}
+
+</div>
+</div>
+	{{>editInfo}}
+</template>
+
+<template name="moneyDash">
+	<div class="row" id="money-dash">
+		<div class="small-6 columns">
+		<h1 id="total-h1">${{total}}</h1>
+		<h5>left in budget</h5>
+		</div>
+		<div class="small-6 columns" id="face-col">
+			<a id="edit-info" class="button tiny">Edit Info</a>
+			<img src="images/2happyface.png" id="face-img">
+		</div>
+		
+	</div>
+</template>
+
+<template name="addExpense">
+	<div class="row" id="add-expense">
+		<div class="small-12 large-8 columns">
+		<form>
+			<div class="row collapse">
+
+				    <div class="small-3  columns">
+				    	<label class="error">
+				    		<input type="text" class="error" id="expense-input" placeholder="Amount"/>
+				    	</label>
+				    	<small class="error" id="amount-error">Numbers only!</small>
+				    </div>
+				    <div class="small-4  columns">
+				    	<input type="text" id="descr-input" placeholder="Location"/>
+				    </div>
+				    <div class="small-3 columns">
+				    	<select name="cats" class="postfix" id="cats-dropdown">
+				    	{{#each category}}
+				    	<option value="{{id}}">{{name}}</option>
+				    	{{/each}}
+				    	</select>
+				    </div>
+				    <div class="small-2 columns">
+
+				    	<a href="#" data-dropdown="drop-cat" class="postfix button cat-add">Add</a>
+				    </div>
+		    </div>	
+		</form>
+		</div>
+	</div>
+</template>
+
+<template name="budgetProgress">
+<div class="row" id="budget-progress">
+		<div class="small-12 large-8 columns">
+			<div class="hidden">{{updateMe}}</div>
+			<h3>{{month}} Budget</h3>
+			<div class="row prog-row" id="fun-row">
+				<h4 class="budj-info left-words"><b>Fun</b></h4> <h4 class="right right-words budj-info">Spent: <em class="extra">${{funSpending}}</em>, Budget: <span class="edit-wrapper"><a class="budget-editable-text" title="Edit">${{budj.fun}}</a></span></h4>
+				<div class="small-12 columns">
+					<div class="progress">
+						<span class="meter" id="fun-meter"> </span>
+					</div>
+				</div>
+				<div class="row settings-row hidden">
+					<div class="small-12 columns">
+						<table class="trans-table">
+							<tbody class="transaction-body">
+								{{#each funTransaction}}
+								{{transaction this}}
+								{{/each}}
+							</tbody>
+						</table>
+					</div> 
+				</div>
+			</div>
+
+			<div class="row prog-row" id="food-row">
+				<h4 class="budj-info left-words"><b>Food</b></h4>  <h4 class="right budj-info right-words">Spent: <em class="extra">${{foodSpending}}</em>, Budget: ${{budj.food}}</h4>
+				<div class="small-12 columns">
+					<div class="progress">
+						<span class="meter" id="food-meter"> </span>
+					</div>
+				</div>
+				<div class="row settings-row hidden">
+					<div class="small-12 columns">
+						<table class="trans-table">
+							<tbody class="transaction-body">
+								{{#each foodTransaction}}
+								{{transaction this}}
+								{{/each}}
+							</tbody>
+						</table>
+					</div> 
+				</div>
+			</div>
+
+			<div class="row prog-row" id="trans-row">
+			<h4 class="budj-info left-words"><b>Transportation</b></h4> <h4 class="right budj-info right-words">Spent: <em class="extra">${{transSpending}}</em>, Budget: ${{budj.trans}}</h4>
+				<div class="small-12 columns">
+					<div class="progress">
+						<span class="meter" id="trans-meter"> </span>
+					</div>
+				</div>
+				<div class="row settings-row hidden">
+					<div class="small-12 columns">
+						<table class="trans-table">
+							<tbody class="transaction-body">
+								{{#each transTransaction}}
+								{{transaction this}}
+								{{/each}}
+							</tbody>
+						</table>
+					</div> 
+				</div>
+			</div>
+
+			<div class="row prog-row" id="rent-row">
+			<h4 class="budj-info left-words"><b>Home</b></h4> <h4 class="right budj-info right-words">Spent: <em class="extra">${{rentSpending}}</em>, Budget: ${{budj.rent}}</h4>
+				<div class="small-12 columns">
+					<div class="progress">
+						<span class="meter" id="rent-meter"> </span>
+					</div>
+				</div>
+				<div class="row settings-row hidden">
+					<div class="small-12 columns">
+						<table class="trans-table">
+							<tbody class="transaction-body">
+								{{#each rentTransaction}}
+								{{transaction this}}
+								{{/each}}
+							</tbody>
+						</table>
+					</div> 
+				</div>
+			</div>
+
+			<div class="row prog-row" id="bills-row">
+			<h4 class="budj-info left-words"><b>Bills</b></h4> <h4 class="right budj-info right-words">Spent: <em class="extra">${{billsSpending}}</em>, Budget: ${{budj.bills}}</h4>
+				<div class="small-12 columns">
+					<div class="progress">
+						<span class="meter" id="bills-meter"> </span>
+					</div>
+				</div>
+				<div class="row settings-row hidden">
+					<div class="small-12 columns">
+						<table class="trans-table">
+							<tbody class="transaction-body">
+								{{#each billsTransaction}}
+								{{transaction this}}
+								{{/each}}
+							</tbody>
+						</table>
+					</div> 
+				</div>
+			</div>
+
+			<div class="row prog-row" id="save-row">
+			<h4 class="budj-info left-words"><b>Savings!</b></h4> <h4 class="right budj-info right-words">Saved: <em class="extra">${{savingThisMonth}}</em>, Goal: ${{budj.save}}</h4>
+				<div class="small-12 columns">
+					<div class="progress">
+						<span class="meter" id="save-month-meter"> </span>
+					</div>
+				</div>
+			</div>
+
+			{{>saveProgress}}
+		</div>
+</div>
+</template>
+
+<template name="saveProgress">
+	<div class="row">
+	<div class="small-12 columns center">
+	<h3> ----- Savings Goals ----- </h3>
+	</div>
+	</div>
+	{{#each savingsGoals}}
+	<div id="{{_id}}" class="row save-row">
+	<h4 class="budj-info left-words"><b>{{description}}</b><small class="months-left">{{monthsLeft}} months left</small></h4> <h4 class="right budj-info right-words">saved <em class="extra">${{saved}}</em> out of ${{goal}} </h4>
+		<div class="small-12 columns">
+			<div class="progress success">
+				<span class="meter save-meter"> </span>
+			</div>
+			<div class="row settings-row hidden">
+					<div class="small-12 columns">
+						<h6 class="save-edit"><span class="edit-area"><a href="#" title="Edit" class="save-editable-text save-money-text">${{goal}}</a></span> 
+							in <span class="edit-area"><a href="#" title="Edit" class="dur-text save-editable-text">{{months}}</a></span> months</h6>
+
+						<a class="button tiny alert right goal-delete">DEL</a>
+					</div>
+			</div>
+		</div>
+
+	</div>
+	{{/each}}
+
+</template>
+
+<template name="savingsGoals">
+	<div class="row">
+	<div class="small-12 columns">
+		<a href="#" class="button success" id="add-savings-goal">+ Add Savings Goal</a>
+		<form id="savings-goal-form" class="hidden">
+			<div class="row collapse">
+				    <div class="small-1 columns">
+				    	<span class="prefix">$</span>
+				    </div>
+				    <div class="small-11 columns">
+				    	<input type="text" id="savings-input" placeholder="100.00"/>
+				    </div>     
+			</div>
+			<div class="row collapse"> 
+				    <div class="small-4  columns">
+				    	<input type="text" id="savings-month-input" placeholder="5"/>
+				    </div>
+				    <div class="small-7  columns">
+				    	<span class="postfix">months</span>
+				    </div> 
+			</div>
+			<div class="row collapse">
+				    <div class="small-12 columns">
+				    	<input type="text" id="savings-descr-input" placeholder="Description"/>
+				    </div>
+			</div>
+			<div class="row collapse">
+				    <div class="small-12  columns">
+				    	<a href="#" class="button" id="new-goal-button">Add Goal!</a>
+				    </div>
+		    </div>	
+		</form>
+	</div> 
+	</div>
+</template>

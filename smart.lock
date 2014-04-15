@@ -1,0 +1,43 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "jqueryui": {},
+      "moment": {},
+      "foundation-5": {},
+      "foundation-icons-general": {}
+    },
+    "packages": {
+      "jqueryui": {
+        "git": "https://github.com/mizzao/meteor-jqueryui.git",
+        "tag": "v1.10.4",
+        "commit": "c75906fc9e1e19abf1ad5b2963925122ff8a0336"
+      },
+      "moment": {
+        "git": "https://github.com/acreeger/meteor-moment.git",
+        "tag": "v2.5.1",
+        "commit": "8c9bc5d3fc96705057737cb9743d555417f6e551"
+      },
+      "foundation-5": {
+        "git": "https://github.com/menuet/meteor-foundation-5.git",
+        "tag": "v5.0.3.5",
+        "commit": "8bc2219c0c7f3d68ca0a8d15a066db55b52f0aa4"
+      },
+      "foundation-icons-general": {
+        "git": "https://github.com/IainShigeoka/meteor-foundation-icons-general.git",
+        "tag": "v1.0.1",
+        "commit": "0d16dc77ffb76180d63dcbc58716bd1dbf7d66d5"
+      },
+      "build-fetcher": {
+        "git": "https://github.com/mizzao/meteor-build-fetcher.git",
+        "tag": "v0.1.0",
+        "commit": "e3813b1fc7f5c576e8e1fa4c51ae6f4687780a35"
+      },
+      "jquery": {
+        "git": "https://github.com/nrafter/meteor-jquery.git",
+        "tag": "v2.0.3",
+        "commit": "8e8b556f39e1549d03abeebcc2d93083670ae200"
+      }
+    }
+  }
+}

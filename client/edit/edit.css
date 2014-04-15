@@ -1,0 +1,13 @@
+.info-editable-text{
+	text-decoration: none;
+	border-bottom: dashed 1px #0088cc;
+	cursor: pointer;
+}
+
+.objs{
+	background-color: #DDDDDD;
+}
+
+#back-to-budget{
+	margin-top: 10px;
+}

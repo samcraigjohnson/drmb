@@ -1,0 +1,26 @@
+<template name="editInfo">
+	<div class="row hidden" id="edit-main">
+	<div class="small-12 columns">
+		<a class="button small round" id="back-to-budget">Show Budget</a>
+		<h2>Hello {{currentUser.username}}, I use this data to create your budget.</h2>
+		<h4>Feel free to edit anything, your budget will be updated automatically.</h4>
+		{{>personalInfo}}
+	</div>
+	</div>
+
+</template>
+
+<template name="personalInfo">
+	<div class="row">
+	<div class="small-12 medium-8 columns objs">
+	{{#each personalObjs}}
+		<div class="small-9 columns">
+		<h3>{{name}}:</h3>
+		</div>
+		<div class="small-3 columns">
+		 <h3><a id="{{cat}}-value" class="info-editable-text">{{value}}</a></h3>
+		</div>
+	{{/each}}
+	</div>
+	</div>
+</template>

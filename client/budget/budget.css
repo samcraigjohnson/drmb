@@ -1,0 +1,118 @@
+#budget-main{
+	padding-top: 10px;
+}
+
+#money-dash h1, #money-dash h5{
+	text-align: center;
+}
+
+
+#savings-column h1, #savings-column h5{
+	color:green !important;
+}
+
+#face-img{
+	text-align: center;
+	padding-bottom: 20px;
+	height: 120px;
+}
+
+#face-col{
+	text-align: center;
+}
+
+#save-month-meter{
+	background-color: green;
+}
+
+.spent{
+	color:red;
+}
+
+.extra{
+	color:green;
+}
+
+.budj-info{
+	display: inline;
+}
+
+.left-words{
+	margin-left:15px;
+}
+
+.right-words{
+	margin-right: 15px;
+}
+
+.div-highlight{
+	background-color: lightgray;
+}
+
+.my-alert{
+	margin-bottom: 0;
+}
+
+.trans-table{
+	width: 96%;
+	margin-right: 30px;
+	margin-left:15px;
+}
+
+.prog-row, .save-row{
+	cursor: pointer;
+}
+
+.transaction-row{
+	text-align: center;
+}
+
+.transaction-body, .settings-row{
+	cursor: default;
+}
+
+.editable-text, .save-editable-text, .budget-editable-text{
+	text-decoration: none;
+	border-bottom: dashed 1px #0088cc;
+	cursor: pointer;
+}
+
+.budget-edit-field{
+	width: 55px !important;
+	display: inline !important;
+	margin-bottom: 0 !important;
+}
+
+.edit-text{
+	margin-bottom: 0 !important;
+}
+
+.save-edit{
+	display: inline;
+}
+
+.edit-area input{
+	width: 50px;
+	display: inline;
+}
+
+.months-left{
+	margin-left: 13px;
+}
+
+label.error{
+	margin-bottom: 0;
+}
+
+#amount-error, #edit-error{
+	display: none;
+}
+
+#edit-error{
+	position: absolute;
+}
+
+.amt-td{width:20%;}
+.descr-td{width:40%;}
+.date-td{width:30%;}
+.del-td{width:10%;}

@@ -1,0 +1,162 @@
+
+<template name="next">
+	<div class="row">
+	<div class="small-12 large-8 columns">
+		<a href="#" class="next-btn button small radius default right">Next</a> 
+	</div>
+	</div>
+</template>
+
+
+<template name="hello">
+	<div class="row" id="hello">
+	<div class="large-12 columns">
+		<h3> Hello {{currentUser.username}}, please follow me as we figure out your budget! </h3>
+		{{>next}}
+	</div>
+	</div>
+</template>
+
+<template name="single">
+	<div class="row hidden" id="single">
+	<div class="large-12 columns">
+		<h3> First things first, is this budget just for you or a whole family? </h3>
+		<input type="radio" name="single-family" value="me" id="singleRadio"><label for="singleRadio">Just me</label><br>
+		<input type="radio" name="single-family" value="family" id="familyRadio"><label for="familyRadio">Family</label>
+		{{>next}}
+	</div>
+	</div>
+</template>
+
+<template name="kids">
+	<div class="row hidden" id="kids">
+	<div class="large-12 columns">
+		<h3> KIDS</h3>
+		{{>next}}
+	</div>
+	</div>
+</template>
+
+<template name="monthlyInc">
+	<div class="row hidden" id="monthlyInc">
+	<div class="large-12 columns">
+		<h3> MONTHLYINC </h3>
+		{{>next}}
+	</div>
+	</div>
+</template>
+
+<template name="paid">
+	<div class="row hidden" id="paid">
+	<div class="large-8 columns">
+		<h4> How many paychecks do you get a month? </h4>
+		<form>
+			<div class="row">
+			    <div class="medium-6 columns">
+			      	<input type="radio" name="pay-month" value="1" id="paidOnce"><label for="paidOnce">1</label>
+			      	<input type="radio" name="pay-month" value="2" id="paidTwice"><label for="paidTwice">2</label>
+		       		<input type="radio" name="pay-month" value="3" id="paidThree"><label for="paidThree">3</label>
+		        	<input type="radio" name="pay-month" value="4" id="paidFour"><label for="paidFour">4</label>
+			    </div>
+			</div>
+		</form>
+		{{>next}}
+	</div>
+	</div>
+</template>
+
+<template name="made">
+	<div class="row hidden" id="made">
+	<div class="large-8 columns">
+	<h4> How much, on average, do you make per paycheck? (Estimate is fine) </h4>
+	<form>
+		<div class="row">
+			    <div class="medium-6 columns">
+			    <input type="text" id="make-input" placeholder="XXXX.XX"/>
+			    </div>
+	    </div>	
+	</form>
+	{{>next}}
+	</div>
+	</div>
+</template>
+
+<template name="rent">
+	<div class="row hidden" id="rent">
+	<div class="large-8 columns">
+	<h4> How much each month do you spend on rent/mortage? </h4>
+	<form>
+		<div class="row">
+			    <div class="medium-6 columns">
+			    <input type="text" id="rent-input" placeholder="XXXX.XX"/>
+			    </div>
+	    </div>	
+	</form>
+	{{>next}}
+	</div>
+	</div>
+</template>
+
+<template name="utilities">
+	<div class="row hidden" id="utils">
+	<div class="large-8 columns">
+	<h4> How much each month, on average, do you spend on utilities (Gas, Electric, Heat)? </h4>
+	<form>
+		<div class="row">
+			    <div class="medium-6 columns">
+			    <input type="text" id="utils-input" placeholder="XXXX.XX"/>
+			    </div>
+	    </div>	
+	</form>
+	{{>done}}
+	</div>
+	</div>
+</template>
+
+<template name="demographics">
+	<div class="row hidden" id="demo">
+	<div class="large-12 columns">
+	<h3> Next, I would like to ask a few demographics type questions to build out this budget. This data is used to compare against other users as well as goverment studies to create a baseline for your personal budget</h3>
+	{{>next}}
+	</div>
+	</div>
+</template>
+
+<template name="age">
+	<div class="row hidden" id="age">
+	<div class="large-8 columns">
+	<h4> Please enter your age: </h4>
+	<form>
+		<div class="row">
+			    <div class="medium-6 columns">
+			    <input type="text" id="age-input" placeholder="Age"/>
+			    </div>
+	    </div>	
+	</form>
+	{{>next}}
+	</div>
+	</div>
+</template>
+
+<template name="location">
+	<div class="row hidden" id="location">
+	<div class="large-8 columns">
+	<h4> Please enter your zip code: </h4>
+	<form>
+		<div class="row">
+			    <div class="medium-6 columns">
+			    <input type="text" id="location-input" placeholder="90210"/>
+			    </div>
+	    </div>	
+	</form>
+	</div>
+	</div>
+</template>
+
+<template name="done">
+	<div class="row" id="done">
+	<div class="large-8 columns">
+		<a href="#" class="button radius success">Done!</a>
+	</div>
+	</div>
+</template>

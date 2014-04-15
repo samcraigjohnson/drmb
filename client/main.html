@@ -1,0 +1,91 @@
+<head>
+	<title>Dr Moneybags</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>budgtr</title>
+
+
+</head>
+<body>
+{{>nav}}
+{{#if currentUser}}
+	{{>structure}}
+{{else}}
+	{{> login}}
+{{/if}}
+
+</body>
+
+<template name="nav">
+	<nav class="top-bar" data-topbar>
+	<ul class="title-area">
+		<li class="name">
+			<h1><a href="">Dr. Moneybags</a></h1>
+		</li>
+		<li class="toggle-topbar"></li>
+	</ul>
+	<section class="top-bar-section">
+		<ul class="right">
+			<li><a href="#" id="logoutBtn">logout</a></li>
+		</ul>
+	</section>
+	</nav>
+</template>
+
+<template name="structure">
+	{{#if firstTime}}
+		{{>hello}}
+		{{>single}}
+		{{>kids}}
+		{{>monthlyInc}}
+		{{>paid}}
+		{{>made}}
+		{{>rent}}
+		{{>utilities}}
+	{{else}}
+		{{>budget}}
+	{{/if}}
+</template>
+
+<template name="login">
+	<div class="row">
+	<div class="small-12 medium-8 columns">
+	<h1> Login </h1>
+	<form>
+	    <div class="row">
+	        <div class="small-12 columns">
+	          <input type="text" id="username" placeholder="Username">
+	        </div>
+	    </div>
+	    <div class="row">
+	        <div class="small-12 columns">
+	          <input type="password" id="password" placeholder="Password">
+	        </div>
+		</div>
+		<div class="row">
+	        <div class="small-12 columns">
+	        	<a href="#" class="button primary" id="loginBtn">Enter</a>
+	        </div>
+	    </div>
+	</form>
+	<h1> Create Account </h1>
+	<form>
+	    <div class="row">
+	        <div class="small-12 columns">
+	          <input type="text" id="usernameCreate" placeholder="Username">
+	        </div>
+	    </div>
+	    <div class="row">
+	        <div class="small-12 columns">
+	          <input type="password" id="passwordCreate" placeholder="Password">
+	        </div>
+		</div>
+		<div class="row">
+	        <div class="small-12 columns">
+	        	<a href="#" class="button primary" id="createBtn">Create Account</a>
+	        </div>
+	    </div>
+	</form>
+	</div>
+	</div>
+</template>
