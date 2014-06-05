@@ -39,8 +39,10 @@ Meteor.methods({
 				amount: amt, 
 				cat: category, 
 				date: new Date(),
+				dateString: moment().format(),
 				description: d
 			};
+		console.log(spend_obj.date);
 		Expenses.update({user: this.userId, active: true}, {$push : {spending: spend_obj}});
 	},
 
@@ -155,6 +157,9 @@ function calculate_budget(userId){
 	var now = moment();
 	for(var i=0; i<budj.goals.length; i++){
 		var goal = SavingsGoals.findOne({_id: budj.goals[i]});
+
+
+		
 		if(goal == undefined){
 			to_remove = i;
 		}
